@@ -1,6 +1,6 @@
 import React from 'react'
-import Main from "./UI/Main";
-import "./UI/style/style.scss"
+import Main from "./components/UI/Main.jsx";
+import "./components/UI/style/style.scss"
 
 
 function App() {

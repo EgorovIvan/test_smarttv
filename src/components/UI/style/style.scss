@@ -1,0 +1,573 @@
+@import "vars";
+
+//Общая оболочка
+.wrapper {
+  position: relative;
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: darkgray;
+  z-index: 5;
+}
+
+//Верстка контейнера под размеры видео
+.container {
+  position: relative;
+  display: block;
+  justify-content: center;
+  align-items: center;
+
+  width: 1280px;
+  height: 721px;
+
+  margin: auto;
+  z-index: 6;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 721px;
+}
+
+//Верстка баннера
+.banner {
+  display: block;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+  position: absolute;
+  width: 251px;
+  height: 357px;
+  top: 220px;
+  right: -252px;
+
+  background: #86D3F4;
+
+  &__text {
+    position: relative;
+    display: block;
+    width: 231px;
+    height: 57px;
+
+    @extend %title-font-roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
+    margin: 20px auto;
+  }
+
+  img {
+    display: block;
+    margin: 20px auto;
+  }
+
+  &__text-img {
+    position: static;
+    width: 126px;
+    height: 32px;
+    left: 62.5px;
+    top: 243px;
+
+    @extend %title-font-roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    margin: 20px auto;
+  }
+
+  &__btn {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+
+    position: static;
+    width: 156px;
+    height: 52px;
+    left: 47.5px;
+    top: 295px;
+
+    @extend %title-font-roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #86D3F4;
+    background: #000000;
+    border: 2px solid #000000;
+    margin: 20px auto 10px auto;
+  }
+
+  &__btn:hover {
+    color: #c0c0c0;
+  }
+
+  &btn:active{
+    border-color: #86D3F4;
+  }
+}
+
+//Анимация панели
+@keyframes showLeft {
+
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0;
+  }
+
+}
+
+@keyframes closeLeft {
+
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -100%;
+  }
+
+}
+
+//Анимация баннера
+@keyframes showRight {
+
+  from {
+    right: -100%;
+  }
+
+  to {
+    right: 0;
+  }
+
+}
+
+//Верстка контейнера под панель, кнопку и qr-код
+.container-panel {
+  position: absolute;
+
+  width: 1280px;
+  height: 721px;
+  right: 1290px;
+
+  background: rgba(0, 170, 238, 0.3);
+
+  &__btn {
+    position: absolute;
+
+    width: 88px;
+    height: 52px;
+    top: 20px;
+    right: 20px;
+
+    background: #FFFFFF;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    border: 2px solid #000000;
+    box-sizing: border-box;
+  }
+  &__btn:hover, &__btn:focus {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  &btn:active{
+    border-color: #86D3F4;
+  }
+
+  &__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+  }
+
+  &__close:hover {
+    opacity: 1;
+  }
+
+  &__close:before, &__close:after {
+    position: absolute;
+
+    content: ' ';
+    height: 25px;
+    width: 2px;
+
+    background-color: #86D3F4;
+  }
+
+  &__close:before {
+    transform: rotate(45deg);
+  }
+
+  &__close:after {
+    transform: rotate(-45deg);
+  }
+
+  &__info {
+    position: absolute;
+    display: flex;
+
+    width: 314px;
+    height: 110px;
+    right: 40px;
+    bottom: 40px;
+  }
+
+  &__info-text {
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    width: 194px;
+    height: 76px;
+
+    @extend %title-font-roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #ffffff;
+    margin: auto;
+    padding-right: 10px;
+  }
+
+  &__info-qr img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+//Верстка панели
+.panel {
+  position: absolute;
+  display: block;
+  justify-content: center;
+  align-items: center;
+
+  width: 380px;
+  height: 721px;
+
+  background: #86D3F4;
+
+  &__text {
+    position: relative;
+    display: block;
+
+    width: 272px;
+    height: 60px;
+
+    @extend %title-font-roboto;
+    font-size: 26px;
+    line-height: 30px;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    margin: 72px auto 13px auto;
+  }
+
+  &__number {
+    position: relative;
+    display: block;
+
+    width: 270px;
+    height: 38px;
+
+    @extend %title-font-roboto;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+
+    text-transform: uppercase;
+
+    color: #000000;
+    background: #86D3F4;
+
+    margin: 13px auto;
+    padding: 0;
+
+    outline: 0 !important;
+    border: none;
+  }
+
+  &__subtext {
+    position: relative;
+    display: block;
+
+    width: 260px;
+    height: 32px;
+
+    @extend %title-font-roboto;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    margin: 13px auto;
+  }
+
+
+  &__agreement {
+    position: relative;
+    display: flex;
+
+    width: 284px;
+    height: 52px;
+
+    margin: 0 auto;
+  }
+
+  //Checkbox
+  &__agreement-checkbox:checked,
+  &__agreement-checkbox:not(:checked) {
+    position: absolute;
+    left: -9999px;
+  }
+
+  &__agreement-checkbox:checked + label,
+  &__agreement-checkbox:not(:checked) + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 50px;
+    line-height: 40px;
+    cursor: pointer;
+  }
+
+  &__agreement-checkbox:checked + label:before,
+  &__agreement-checkbox:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 6px;
+
+    width: 36px;
+    height: 36px;
+    border: 2px solid #000000;
+    background-color: #86D3F4;
+  }
+
+  &__agreement-checkbox:checked + label:after,
+  &__agreement-checkbox:not(:checked) + label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    left: 20px;
+    top: 18px;
+    width: 20px;
+    height: 8px;
+    border-radius: 1px;
+    border-left: 4px solid #000000;
+    border-bottom: 4px solid #000000;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  &__agreement-checkbox:checked + label:after {
+    opacity: 1;
+  }
+
+  &__agreement-checkbox:not(:checked) + label:after {
+    opacity: 0;
+  }
+
+  &__agreement-text {
+    position: relative;
+    display: flex;
+
+    width: 214px;
+    height: 52px;
+
+    @extend %title-font-roboto;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+
+    color: #565656;
+    padding-left: 20px;
+  }
+
+  &__confirm-btn {
+    position: relative;
+    display: block;
+
+    width: 284px;
+    height: 52px;
+
+    @extend %title-font-roboto;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
+    background: #86D3F4;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    margin: 13px auto;
+  }
+
+  &__confirm-btn:hover, &__confirm-btn:focus {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  &__confirm-btn:active{
+    border-color: #86D3F4;
+  }
+}
+
+//Верстка виртуальной клавиатуры
+.keyboard {
+  position: relative;
+  display: grid;
+  justify-content: center;
+
+  width: 304px;
+  height: 238px;
+
+  margin: 30px auto;
+
+  &__btn {
+    width: 88px;
+    height: 52px;
+
+    @extend %title-font-roboto;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
+    background: #86D3F4;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 5px;
+  }
+
+  &__btn:hover, &__btn:focus {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  &__btn:active{
+    border-color: #86D3F4;
+  }
+
+  &__delete {
+    width: 186px;
+    height: 52px;
+
+    @extend %title-font-roboto;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
+    background: #86D3F4;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+
+    padding: 0;
+    margin: 5px;
+  }
+
+  &__delete:hover, &__delete:focus {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  &__delete:active{
+    border-color: #86D3F4;
+  }
+}
+
+.final-panel {
+  position: absolute;
+  display: block;
+  justify-content: center;
+  align-items: center;
+
+  width: 380px;
+  height: 721px;
+
+  background: #86D3F4;
+  animation: showLeft 2s;
+  animation-fill-mode: forwards;
+
+  &__text {
+    display: block;
+    align-items: center;
+
+    width: 284px;
+    height: 76px;
+
+    @extend %title-font-roboto;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
+    margin-top: 265px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__subtext {
+    display: block;
+    align-items: center;
+
+    width: 284px;
+    height: 32px;
+    top: 265px;
+
+    @extend %title-font-roboto;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+
+    color: #000000;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+

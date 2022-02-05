@@ -1,19 +1,28 @@
 import React from 'react'
 import './style/style.scss'
 
-function Main() {
-    return (
-        <div className="container">
 
-            <iframe width="1200"
-                    height="721"
-                    src="https://www.youtube.com/embed/BM4vHP1jbi0"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen/>
+const Banner = ({onPause, styles}) => {
+
+    return (
+        <div className="banner" style={styles}>
+
+            <div className="banner__text">
+                ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! ПОДАРИТЕ ЕМУ СОБАКУ!
+            </div>
+
+            <div>
+                <img src={process.env.PUBLIC_URL + "/images/qr.png"} alt="QR"/>
+            </div>
+
+            <div className="banner__text-img">
+                Сканируйте QR-код или нажмите ОК
+            </div>
+
+                <button className="banner__btn" onClick={onPause}>ОК</button>
+
         </div>
     );
 }
 
-export default Main;
+export default Banner;

@@ -1,22 +1,30 @@
 import React from 'react'
 import './style/style.scss'
 
-function Banner({onPlay, onPause, styles}) {
+
+const Final = ({timeCount}) => {
 
     return (
-        <div className="banner" style={styles}>
-            <div className="banner__text">
-                ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! ПОДАРИТЕ ЕМУ СОБАКУ!
+
+        <div className="final-panel">
+
+            <div className="final-panel__text">
+                ЗАЯВКА <br/>
+                ПРИНЯТА
             </div>
-            <div>
-                <img src={process.env.PUBLIC_URL + "/images/qr.png"} alt="QR"/>
+
+            <div className="final-panel__subtext">
+                Держите телефон под рукой.<br/>
+                Скоро с Вами свяжется наш менеджер.
             </div>
-            <div className="banner__text-img">
-                Сканируйте QR-код или нажмите ОК
+
+            <div className="final-panel__subtext">
+                Окно автоматически закроется <br/>
+                через {timeCount} секунд
             </div>
-                <button className="banner__btn" onClick={onPause}>ОК</button>
+
         </div>
     );
 }
 
-export default Banner;
+export default Final;
