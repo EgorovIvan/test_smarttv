@@ -14,7 +14,6 @@ const Main = () => {
         animationDelay: "4s"
     })
     const [stylesPanel, setStylesPanel] = useState(null)
-    // const [videoId, setVideoId] = useState("BM4vHP1jbi0")
     const [player, setPlayer] = useState(null)
 
     //Запись события видео в хук

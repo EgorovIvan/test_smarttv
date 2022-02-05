@@ -16,11 +16,11 @@ function Panel({onPlay, styles}) {
     const [timeCount, setTimeCount] = useState('')
     const [numberTel, setNumberTel] = useState({value: ''})
 
-
     //Запись события при изменении в поле набора Input
     const handleChange = (event) => {
-            numberTel.value = event.target.value.replace(/[^0-9]/g, '')
-            setNumberTel({value: event.target.value.replace(/[^0-9]/g, '')});
+        setNumberTel({
+            value: event.target.value.replace(/[^0-9]/g, '')
+        });
     }
 
     //Ввод цифр номера телефона с виртуальной клавиатуры
@@ -67,7 +67,7 @@ function Panel({onPlay, styles}) {
 
         const string = numberTel.value.replace(/[^0-9]/g, '')
 
-        if (string.length >= 10 && state) {
+        if (string.length >= 11 && state) {
             setStyleBtn({background: "#000000", color: "#ffffff"})
             setDisabled(false)
 
@@ -160,7 +160,7 @@ function Panel({onPlay, styles}) {
         setVisible(false)
         setState(false)
         setNumberTel({
-            value: ''
+                value: ''
             }
         )
 
@@ -197,14 +197,15 @@ function Panel({onPlay, styles}) {
                     Введите ваш номер мобильного телефона
                 </div>
 
-                    <InputMask
-                        className="panel__number"
-                        value={numberTel.value.replace(/[^0-9]/g, '')}
-                        onInput={handleChange}
-                        mask="+7 (999) 999 99 99"
-                        maskChar={null}
-                        placeholder="+7 (___) ___ __ __"
-                    />
+                <InputMask
+                    className="panel__number"
+                    value={numberTel.value.replace(/[^0-9]/g, '')}
+                    onChange={handleChange}
+                    mask="+7 (999) 999-99-99"
+                    maskChar={null}
+                    placeholder="+7 (___) ___-__-__"
+                    maxLength="18"
+                />
 
                 <div className="panel__subtext">
                     и с Вами свяжется наш менеждер для дальнейшей консультации
