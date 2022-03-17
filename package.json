@@ -6,8 +6,11 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "expess": "0.0.1-security",
     "node": "^17.4.0",
     "node-sass": "^7.0.1",
+    "pg": "^8.7.3",
+    "pq": "0.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-imask": "^6.3.0",
@@ -19,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

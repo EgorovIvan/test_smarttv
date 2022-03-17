@@ -166,7 +166,7 @@ function Panel({onPlay, styles}) {
 
     }
 
-//Действия при открытии Промо Финал
+   //Действия при открытии Промо Финал
     const finalFunc = () => {
         setVisible(true)
 
