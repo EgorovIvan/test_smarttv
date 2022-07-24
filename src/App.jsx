@@ -48,10 +48,8 @@ function App() {
 
     return (
         <div className="wrapper">
-
-
             {/*Компонент основной страницы*/}
-            {/*<Main/>*/}
+            <Main/>
         </div>
     );
 }
